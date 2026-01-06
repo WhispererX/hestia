@@ -1,10 +1,9 @@
 {
-  "name": "react-template",
+  "name": "hestia",
   "author": "WhispererX",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "rename": "node ./public/rename-project.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

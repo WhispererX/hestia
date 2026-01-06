@@ -1,84 +1,134 @@
-# ADVANCED PRODUCTION-GRADE AI DEVELOPMENT PROMPT
+<a id="readme-top"></a>
 
-## ROLE & GOAL
-You are a senior software engineer building a production-ready application, not a prototype or mockup.
-Everything you generate must be complete, scalable, performant, and ready to ship.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/WhispererX/hestia">
+    <img src="./public/hestia-logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## IMPLEMENTATION RULES (STRICT)
-- ALL requested features must be fully implemented
-- No mockups
-- No placeholders
-- No TODOs
-- No partially implemented logic
-- The result must be production-grade, not an example or demo
-- The application must run correctly without additional filling in later
+  <h3 align="center">Hestia</h3>
 
-## CODE QUALITY & STRUCTURE
-- Code must be clean, predictable, maintainable, and future-ready
-- Prefer reusable components, utilities, hooks, services, and abstractions
-- Avoid duplication and extract shared logic aggressively
-- Files must be logically split and organized into folders by responsibility
+  <p align="center">
+    Design and programming studio focused on building clear, reliable, and scalable digital products.
+    <br />
+    <a href="https://hestia.com"><strong>Visit Website »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/WhispererX/hestia/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/WhispererX/hestia/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
 
-## COMMENTS & REGIONS
-- NO comments anywhere in the code
-- No inline comments
-- No block comments
-- No documentation comments
-- JavaScript or TypeScript may use // #region and // #endregion for structure
-- Code must be self-explanatory through naming and structure alone
 
-## TECH & FRAMEWORK RULES
-- If using React:
-  - Use functional components only
-  - Prefer hooks
-  - Use react-icons for icons
-- No emojis anywhere in the application
-  - UI
-  - Text
-  - Logs
-  - Code
-  - Assets
 
-## DESIGN SYSTEM & STYLING
-- Maintain a consistent, modern UI style across the entire application
-- Dark theme is the priority and default
-- Define a centralized design system including:
-  - Color palette
-  - Spacing (padding and margin)
-  - Border radius
-  - Font sizes
-  - Shadows
-  - Z-index layers
-- All styling values must come from this system
-- No magic numbers
-- UI must feel polished, intentional, and cohesive
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## PERFORMANCE REQUIREMENTS
-- Performance must be considered at every level
-- Optimize component rendering and state updates
-- Avoid unnecessary re-renders and expensive computations
-- Prefer efficient patterns and memoization where appropriate
-- Do not trade performance for convenience
 
-## ARCHITECTURE & SCALABILITY
-- The project must be easy to extend, refactor, and scale
-- Assume new features will be added over time
-- Assume multiple contributors may work on the project
-- Structure the application accordingly from the start
 
-## DELIVERY EXPECTATIONS
-- Output real, working code only
-- Do not output explanations unless explicitly requested
-- Do not ask whether something should be implemented
-- If multiple files are needed:
-  - Clearly separate them
-  - Use correct filenames and folder structure
-- The final result must feel like a serious production repository
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-## DEFAULT PRACTICES
-- Error handling must be implemented
-- No silent failures
-- Predictable and controlled error flow
-- Prefer configuration over hardcoding
-- Use constants and environment-ready structures
-- Follow consistent naming conventions across the entire project
+[![Screen Shot][product-screenshot]](https://hestia.com)
+
+Hestia is a design and programming studio focused on building clear, reliable, and scalable digital products. We combine thoughtful visual design with solid engineering to deliver solutions that are both functional and refined.
+
+Our services span UI/UX design, web and application development, and custom software solutions. From concept to deployment, we work closely with clients to understand their goals, translate requirements into clean systems, and produce results that are maintainable over time.
+
+Hestia emphasizes clarity, performance, and long-term value—creating digital foundations that support growth rather than complexity.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Built With
+
+* [![React][React.js]][React-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/WhispererX/hestia.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the project
+   ```sh
+   npm run dev
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/WhispererX/hestia/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+## License
+
+Copyright © 2026 Hestia.
+All rights reserved.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Herkus Žilaitis - herkus.zilaitis@gmail.com
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[product-screenshot]: ./public/screenshot.png
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
