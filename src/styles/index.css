@@ -28,4 +28,7 @@ body, #root {
   display: flex;
   flex-flow: column wrap;
   min-height: 100vh;
+
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
