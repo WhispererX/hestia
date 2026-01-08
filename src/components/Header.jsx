@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Link, NavLink } from "react-router";
-import { NavigationMenu } from "radix-ui";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import * as Dialog from "@radix-ui/react-dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import classNames from "classnames";
-import Logo from "../assets/logo.svg?react";
+import Logo from '../assets/logo.svg?react'
 
 /* ===================== DATA ===================== */
 
@@ -61,14 +63,26 @@ const developmentServices = [
 /* ===================== HEADER ===================== */
 
 export default function Header() {
+  const [openDisclosures, setOpenDisclosures] = React.useState({
+    design: false,
+    development: false
+  });
+
+  const toggleDisclosure = (key) => {
+    setOpenDisclosures(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
   return (
     <header>
       <NavigationMenu.Root className="NavigationMenuRoot">
-        <Link to="/" className="Linkas">
+        <Link to="/">
           <Logo className="Logo h-10 w-10" />
         </Link>
 
-        <NavigationMenu.List className="NavigationMenuList">
+        <NavigationMenu.List className="NavigationMenuList hidden lg:flex">
           <NavItem to="/">About</NavItem>
           <NavItem to="/">Solutions</NavItem>
 
@@ -100,7 +114,109 @@ export default function Header() {
           </div>
         </NavigationMenu.List>
 
-        
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <button type="button" className="Hamburger flex lg:hidden">
+              <span className="sr-only">Open main menu</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="size-6">
+                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </Dialog.Trigger>
+
+          <Dialog.Portal>
+            <Dialog.Overlay className="MobileMenuOverlay" />
+            <Dialog.Content className="MobileMenuPanel">
+              <VisuallyHidden.Root>
+                <Dialog.Title>Mobile Navigation Menu</Dialog.Title>
+                <Dialog.Description>Browse our services and contact information</Dialog.Description>
+              </VisuallyHidden.Root>
+              
+              <div className="MobileMenuHeader">
+                <Link to="/" className="-m-1.5 p-1.5">
+                  <span className="sr-only">Hestia</span>
+                  <Logo className="Logo h-10 w-10" />
+                </Link>
+                <Dialog.Close asChild>
+                  <button type="button" className="MobileMenuClose">
+                    <span className="sr-only">Close menu</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="size-6">
+                      <path d="M6 18 18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                </Dialog.Close>
+              </div>
+              <div className="MobileMenuContent">
+                <div className="MobileMenuInner">
+                  <div className="MobileMenuSection space-y-2">
+                    <NavLink to="/" className="MobileMenuLink">About</NavLink>
+                    <NavLink to="/" className="MobileMenuLink">Solutions</NavLink>
+                    
+                    <div className="MobileMenuDisclosure">
+                      <button 
+                        type="button" 
+                        onClick={() => toggleDisclosure('design')}
+                        className="MobileMenuDisclosureButton"
+                        aria-expanded={openDisclosures.design}
+                      >
+                        Design
+                        <svg 
+                          viewBox="0 0 20 20" 
+                          fill="currentColor" 
+                          aria-hidden="true" 
+                          className="MobileMenuDisclosureIcon"
+                          style={{ transform: openDisclosures.design ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                        >
+                          <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" fillRule="evenodd" />
+                        </svg>
+                      </button>
+                      {openDisclosures.design && (
+                        <div className="MobileMenuDisclosureContent">
+                          <div className="space-y-2">
+                            {designServices.map((item, idx) => (
+                              <NavLink to={item.to} key={idx} className="MobileMenuDisclosureLink">{item.title}</NavLink>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="MobileMenuDisclosure">
+                      <button 
+                        type="button" 
+                        onClick={() => toggleDisclosure('development')}
+                        className="MobileMenuDisclosureButton"
+                        aria-expanded={openDisclosures.development}
+                      >
+                        Development
+                        <svg 
+                          viewBox="0 0 20 20" 
+                          fill="currentColor" 
+                          aria-hidden="true" 
+                          className="MobileMenuDisclosureIcon"
+                          style={{ transform: openDisclosures.development ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                        >
+                          <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" fillRule="evenodd" />
+                        </svg>
+                      </button>
+                      {openDisclosures.development && (
+                        <div className="MobileMenuDisclosureContent">
+                          <div className="space-y-2">
+                            {developmentServices.map((item, idx) => (
+                              <NavLink to={item.to} key={idx} className="MobileMenuDisclosureLink">{item.title}</NavLink>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <NavLink to="/" className="MobileMenuLink">Contact</NavLink>
+                  </div>
+                </div>
+              </div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
 		</NavigationMenu.Root>
     </header>
   );
