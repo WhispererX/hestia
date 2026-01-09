@@ -7,10 +7,10 @@
   --color-accent: #ffffff;
 
   --color-bg: #F0F2F1;
-  --color-surface: #342937;
+  --color-surface: var(--color-primary);
   --color-overlay: rgba(0, 0, 0, 0.5);
 
-  --color-text: #342937;
+  --color-text: var(--color-primary);
   --color-text-muted: #6C757D;
   --color-text-inverse: #ffffff;
   --color-text-disabled: #ADB5BD;
