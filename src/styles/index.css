@@ -39,10 +39,10 @@ main {
 
 /*#region Header */
 header {
-	width: 100vw;
+	width: 100%;
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-bg);
-	z-index: 1;
+	z-index: 10;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -660,5 +660,86 @@ footer {
 
 .Logo:hover {
 	transform: rotateY(180deg);
+}
+/*#endregion */
+
+/*#region Hero */
+.HeroSection {
+	position: relative;
+	padding: 8rem 0;
+	overflow: hidden;
+}
+
+.Wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+.HeroContent {
+	max-width: 80rem;
+	margin-inline: auto;
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	gap: 1rem;
+	padding-inline: 2rem;
+}
+
+.HeroContent * {
+	z-index: 1;
+}
+
+.HeroLeftContent {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 400px;
+}
+
+.HeroTitle {
+	font-weight: 700;
+	font-size: 3rem;
+}
+
+.HeroTitle span {
+	color: var(--color-text-inverse);
+	text-shadow: 0 2px 3px var(--color-primary);
+}
+
+.HeroDescription {
+	color: var(--color-text-muted);
+}
+
+.HeroAction {
+	padding: 0.5rem 1rem;
+	align-self: flex-start;
+	font-weight: 500;
+}
+
+.HeroRightContent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.HeroRightContent svg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .HeroRightContent svg {
+    max-width: 300px;
+  }
 }
 /*#endregion */
