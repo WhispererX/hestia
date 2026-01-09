@@ -26,11 +26,15 @@
 
 body, #root {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   min-height: 100vh;
 
   color: var(--color-text);
   background-color: var(--color-bg);
+}
+
+main {
+	flex: 1;
 }
 
 /*#region Header */
@@ -39,6 +43,7 @@ header {
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-bg);
 	z-index: 1;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .NavigationMenuRoot {
@@ -46,7 +51,7 @@ header {
 	justify-content: space-between;
   align-items: center;
   max-width: 80rem;
-	padding: 1rem;
+	padding: 1rem 2rem;
 	list-style: none;
 	margin-inline: auto;
   position: relative;
@@ -82,19 +87,33 @@ header {
   align-items: center;
 }
 
+.CTA  {
+	background-color: var(--color-text);
+	color: var(--color-text-inverse);
+	border: 1px solid var(--color-text);
+	border-radius: 25px;
+	transition: all 0.2s;
+}
+
+.CTA:hover {
+	background-color: transparent;
+	color: var(--color-text);
+	transform: translateY(-1px);
+}
+
 .NavigationMenuTrigger .NavigationMenuLink {
   padding: 0;
 }
 
 .NavigationMenuTrigger::after,
-.NavigationMenuLink::after {
+.NavigationMenuLink:not(.CTA)::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: 0;
   width: 50%;
   height: 2px;
-  background-color: var(--color-text-disabled);
+  background-color: var(--color-text);
   border-radius: 999px;
 
   transform: translateX(-50%) scaleX(0);
@@ -119,7 +138,7 @@ header {
   padding: 0;
 }
 
-.NavigationMenuLink:hover::after {
+.NavigationMenuLink:not(.CTA):hover::after {
   transform: translateX(-50%) scaleX(1);
 }
 
@@ -533,4 +552,113 @@ header {
 }
 /*#endregion */
 
+/*#endregion */
+
+/*#region Footer */
+footer {
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid var(--color-border);
+	color: var(--color-text-inverse);
+	background-color: var(--color-surface);
+	box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.FooterMainContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 80rem;
+	padding: 2rem;
+	margin-inline: auto;
+	width: 100%;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.FooterBrandContainer {
+	display: flex;
+	flex-direction: column;
+	max-width: 300px;
+	flex-shrink: 0;
+}
+
+.FooterBrandContainer .BrandLogo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-block: 1rem;
+}
+
+.CompanyMission {
+	padding-block: 1rem;
+	text-align: left;
+}
+
+.SocialLinks {
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	padding-block: 1rem;
+}
+
+.SocialLinks nav {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.FooterLinksContainer {
+	flex: 1;
+	display: flex;
+	justify-content: center; 
+	min-width: min(480px, 100%); 
+	max-width: 600px;
+}
+
+.FooterLinksContainer nav {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
+  gap: 2rem;
+	width: 100%;
+
+}
+
+.FooterLinksContainer nav ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.FooterLinksContainer nav ul span {
+	margin-bottom: 4px;
+	font-weight: 500;
+}
+
+
+.FooterLinksContainer nav ul li >*:hover {
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	text-decoration: underline;
+}
+
+.FooterCopyrightContainer {
+	display: flex;
+	max-width: 80rem;
+	padding: 1rem;
+	margin-inline: auto;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid var(--color-border);
+}
+/*#endregion */
+
+/*#region Logo */
+.Logo {
+	transition: transform 0.5s ease-in-out;
+}
+
+.Logo:hover {
+	transform: rotateY(180deg);
+}
 /*#endregion */

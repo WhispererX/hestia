@@ -79,7 +79,7 @@ export default function Header() {
     <header>
       <NavigationMenu.Root className="NavigationMenuRoot">
         <Link to="/">
-          <Logo className="Logo h-10 w-10" />
+          <Logo className="Logo h-10 w-auto" />
         </Link>
 
         <NavigationMenu.List className="NavigationMenuList hidden lg:flex">
@@ -103,7 +103,7 @@ export default function Header() {
             ))}
           </NavList>
 
-          <NavItem to="/">Contact</NavItem>
+          <NavItem to="/" className="CTA">Contacts</NavItem>
 
           <NavigationMenu.Indicator className="NavigationMenuIndicator">
             <div className="Arrow" />
@@ -210,7 +210,7 @@ export default function Header() {
                       )}
                     </div>
 
-                    <NavLink to="/" className="MobileMenuLink">Contact</NavLink>
+                    <NavLink to="/" className="MobileMenuLink">Contacts</NavLink>
                   </div>
                 </div>
               </div>
@@ -224,11 +224,11 @@ export default function Header() {
 
 /* =================== COMPONENTS =================== */
 
-function NavItem({ to, children }) {
+function NavItem({ to, children, className }) {
   return (
-    <NavigationMenu.Item>
+    <NavigationMenu.Item className="NavigationMenuItem">
       <NavigationMenu.Link asChild>
-        <NavLink to={to} className="NavigationMenuLink">{children}</NavLink>
+        <NavLink to={to} className={classNames("NavigationMenuLink", className)}>{children}</NavLink>
       </NavigationMenu.Link>
 		</NavigationMenu.Item>
   )
